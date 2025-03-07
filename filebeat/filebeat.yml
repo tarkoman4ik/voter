@@ -1,0 +1,13 @@
+filebeat.inputs:
+  - type: log
+    paths:
+      - /var/logs/voter.log
+    close_inactive: 5m
+    clean_removed: true
+    scan_frequency: 10s
+    json.keys_under_root: true  # Добавляет поля JSON в корень документа
+    json.add_error_key: true    # Добавляет поле, если JSON некорректен
+    json.message_key: "message"
+
+output.logstash:
+  hosts: ["logstash:5044"]
