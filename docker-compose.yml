@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  voter:
+    container_name: voter
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - LOGGING_FILE_PATH=${LOG_FILE_PATH}
+    ports:
+      - "${APP_PORT}:8080"
+    volumes:
+      - app-logs:/var/logs
+
+volumes:
+  app-logs:
+    name: ${APP_LOG_NAME}

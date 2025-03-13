@@ -24,9 +24,10 @@ repositories {
 }
 
 dependencies {
-	implementation("net.logstash.logback:logstash-logback-encoder:7.4")
+	implementation("net.logstash.logback:logstash-logback-encoder:8.0")
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	implementation("io.micrometer:micrometer-tracing-bridge-otel")
+	implementation("io.micrometer:micrometer-tracing")
+	implementation("io.micrometer:micrometer-tracing-bridge-brave")
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
